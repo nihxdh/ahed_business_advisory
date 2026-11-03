@@ -1,0 +1,15 @@
+# Netlify build settings for the Ahed website.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 8 needs Node 20.19+ or 22.12+.
+  NODE_VERSION = "22"
+
+# Single-page app: every path (/about, /services/strategy-and-growth, ...) is served by index.html,
+# and the built-in router picks the page.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
